@@ -7,21 +7,40 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint ./app",
+    "fixCode": "eslint --fix ./app"
+  },
+  "lint-staged": {
+    "app/**/*.js": [
+      "npm run fixCode"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-native": "0.63.4",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0",
+    "redux-saga": "^1.1.3"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
     "@react-native-community/eslint-config": "^1.1.0",
     "babel-jest": "^25.1.0",
-    "eslint": "^6.5.1",
+    "eslint": "^6.8.0",
+    "husky": "^4.3.8",
     "jest": "^25.1.0",
+    "lint-staged": "^10.5.4",
     "metro-react-native-babel-preset": "^0.59.0",
-    "react-test-renderer": "16.13.1"
+    "react-test-renderer": "16.13.1",
+    "reactotron-react-native": "^5.0.0",
+    "reactotron-redux": "^3.1.3",
+    "reactotron-redux-saga": "^4.2.3"
   },
   "jest": {
     "preset": "react-native"
